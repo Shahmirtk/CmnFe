@@ -17,19 +17,19 @@ export default function Home() {
       	
       	{/* Tab buttons */}
       	<div className="flex flex-row m-2">
-      		<button onClick={() => setShowTab(true)} className="mx-auto border-r border-l rounded border-secondary dark:border-primary w-full bg-primary hover:bg-secondary dark:bg-primary dark:hover:bg-secondary">Tasks</button>
-      		<button onClick={() => setShowTab(false)} className="mx-auto border-r rounded border-secondary dark:border-primary w-full bg-primary hover:bg-secondary dark:bg-primary dark:hover:bg-secondary">Contests</button>
+      		<button onClick={() => setShowTab(true)} className="mx-auto border-r border-l rounded w-full bg-gray-400 hover:bg-gray-300">Tasks</button>
+      		<button onClick={() => setShowTab(false)} className="mx-auto border-r rounded w-full border-gray-300 bg-gray-400 hover:bg-gray-300">Contests</button>
       	</div>
       	
       	{/* Tab 1 */}
     		<div style={{display: showTab ? 'block' : 'none'}} className="p-1">
     			{/* Task box*/}
-    			<div className="box-border p-4 m-2 border-4 border-primary dark:border-primary rounded">
-    				<p className="text-xl overflow-hidden overflow-ellipsis dark:text-primary">Title</p>
+    			<div className="box-border rounded-md border-2 border-gray-400 p-4 m-2">
+    				<p className="text-xl overflow-hidden overflow-ellipsis">Title</p>
     				<br />
-    				<p className="text-md dark:text-primary overflow-hidden overflow-ellipsis">SummarySummarySummarySummarySummarySummary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary</p><br />
+    				<p className="text-md overflow-hidden overflow-ellipsis">SummarySummarySummarySummarySummarySummary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary</p><br />
     				<hr />
-    				<p className="text-md dark:text-primary">21-07-2021 21:30</p>
+    				<p className="text-md">21-07-2021 21:30</p>
     			</div>
     		</div>
     		
