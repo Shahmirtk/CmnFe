@@ -4,7 +4,7 @@ import React from 'react'
 export default function Profile() {
 	const router = useRouter()
 	const username = router.query.username
-	const [showTab, setShowTab] = React.useState<bool>(true)
+	const [showTab, setShowTab] = React.useState<boolean>(true)
 
 	return (
 		<div>
@@ -34,7 +34,8 @@ export default function Profile() {
     			<div className="box-border p-4 m-2 border-4 border-gray-400 rounded">
     				<p className="text-xl overflow-hidden overflow-ellipsis">Title</p>
     				<br />
-    				<p className="text-md overflow-hidden overflow-ellipsis">SummarySummarySummarySummarySummarySummary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary</p><br />
+    				<p className="text-md overflow-hidden overflow-ellipsis">SummarySummarySummarySummarySummarySummary Summary Summary Summary Summary Summary Summary 
+					Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary Summary</p><br />
     				<hr />
     				<p className="text-md">21-07-2021 21:30</p>
     			</div>

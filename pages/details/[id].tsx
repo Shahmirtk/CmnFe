@@ -15,7 +15,8 @@ export default function Details() {
 				<br />
 				<p className="text-lg">Summary: You have to get up early and stretch.</p>
 				<br />
-				<p className="text-lg overflow-hidden overflow-ellipsis">Details: The task must be done before the sun has completely risen. Breath of fresh air should make it even better. Record time and yourself and I will guide you.</p>
+				<p className="text-lg overflow-hidden overflow-ellipsis">Details: The task must be done before the sun has completely risen. Breath of fresh air should
+				make it even better. Record time and yourself and I will guide you.</p>
 				<br />
 				<hr />
 				<p className="text-md">21-07-2021 21:45</p>
