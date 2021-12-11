@@ -1,8 +1,7 @@
 import React from 'react'
 
 export function taskForm(token:string) {
-    
-	// form related
+
 	const [title, setTitle] = React.useState<string>('')
 	const [summary, setSummary] = React.useState<string>('')
 	const [detail, setDetail] = React.useState<string>('')
@@ -64,7 +63,53 @@ export function taskForm(token:string) {
                     className='w-1/4 mt-2 p-2 border'/> <br />
                 <input onChange={(e) => setTags(e.target.value)} value={tags}
                     className='border w-1/4 mt-2 p-2' placeholder='Tags (seperate by commas)'/>
-                <div className='text-center mt-2'><button type='submit' className='rounded-md p-2 bg-gray-500 text-white'>Submit</button></div>
+                <div className='text-center mt-2'>
+                    <button type='submit' className='rounded-md p-2 bg-gray-500 text-white'>Submit</button>
+                </div>
+            </form>
+        </div>
+    )
+}
+
+export function bidForm(token:string) {
+    const [title, setTitle] = React.useState<string>('')
+	const [detail, setDetail] = React.useState<string>('')
+    const [show, setShow] = React.useState<boolean>(true)
+
+    const submitForm = async (event:React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		const body = JSON.stringify({
+			title: title,
+			details: detail,
+		});
+		submitBid(token, body);
+	}
+
+    async function submitBid(token:string, body:string) {
+        const res = await fetch('http://localhost:8000/bids', {
+            method: 'POST',
+            headers: {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json'},
+            body: body
+        });
+        const data = await res.json()
+        console.log(data);
+    }
+
+    return (
+        <div className="box-border rounded-md border-2 border-gray-400 p-4 m-2 fixed left-1/3 right-1/3 bottom-1/3"
+          style={{display: show? "block" : "none"}}>
+            <form onSubmit={submitForm} onReset={() => setShow(false)}>
+                <input onChange={(e) => setTitle(e.target.value)} value={title}
+                    type='text' autoComplete='title' placeholder='Title*'
+                    className='w-full mt-2 p-2 border text-center' required/>
+                <textarea onChange={(e) => setDetail(e.target.value)} value={detail}
+                    autoComplete='detail' placeholder='Details*' rows={10}
+                    className='w-full mt-2 p-2 border' required/>
+                <br />
+                <div className='flex flex-row text-center mt-2'>
+                    <button type='submit' className='rounded-md p-2 bg-gray-500 text-white'>Submit</button>
+                    <button type='reset' className='rounded-md p-2 ml-2 bg-yellow-500 text-white'>Cancel</button>
+                </div>
             </form>
         </div>
     )
