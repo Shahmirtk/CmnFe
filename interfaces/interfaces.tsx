@@ -1,4 +1,5 @@
 export interface ITask {
+    id: number,
     user: string,
     mentor: string,
     cotask: number,

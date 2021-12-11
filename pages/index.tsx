@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 
 import { taskForm } from './forms';
@@ -64,13 +65,34 @@ function taskBox(task:ITask) {
 
 	return (
 		<div className="box-border rounded-md border-2 border-gray-400 p-4 m-2">
-			<p className="text-xl overflow-hidden overflow-ellipsis">{task.title}</p>
+			<p className="text-xl text-center overflow-hidden overflow-ellipsis">{task.title}</p>
 			<br />
-			<p className="text-md overflow-hidden overflow-ellipsis">{task.summary}</p><br />
+			<p className="text-lg overflow-hidden overflow-ellipsis">{task.summary}</p>
+			<br />
+			<div className='flex flex-row'>
+				<Link href={`/details/${task.id}`}>
+					<a className='text-md mr-auto'>Details</a>
+				</Link>
+				<Link href={`/category/${task.main_category}`}>
+					<a className='text-md'>Category: {task.main_category}</a>
+				</Link>
+			</div>
 			<hr />
-			<p className="text-md">{procTime}</p>
+			<div className='flex flex-row'>
+				<Link href={`/profiles/${task.mentor}`}>
+					<a className='text-sm ml-auto'>{task.mentor}</a>
+				</Link>
+				<p className="text-sm ml-2">@ {procTime}</p>
+			</div>
+			<div className='text-center'>
+				<button className='rounded-md p-2 bg-gray-500 text-white'>Bid</button>
+			</div>
 		</div>
 	)
+}
+
+function bidForm() {
+	
 }
 
 export async function getServerSideProps() {
